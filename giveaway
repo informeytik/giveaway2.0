@@ -1,0 +1,192 @@
+{
+  "name": "giveaway",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "xvFrO",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "permission": "ADMINISTRATOR",
+      "branch": {
+        "iftrue": "3",
+        "iffalse": "0",
+        "iftrueVal": "2"
+      },
+      "name": "Check Member Permissions"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Błąd!",
+          "url": "",
+          "color": "RED",
+          "timestamp": "true",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Brak permisji",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "info": "5",
+      "storage": "1",
+      "varName2": "av",
+      "name": "Store Server Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "0",
+      "storage": "1",
+      "varName2": "obj",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "giveaway",
+          "url": "",
+          "color": "BLACK",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Nagroda: ${slashParams(\"na\")}\n\nKoniec za: ${slashParams(\"czas\")}h\n\nOrganizator: ${tempVars(\"obj\")}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "Cyrk Informejtika",
+          "footerIconUrl": "${tempVars(\"av\")}"
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "messagegiveaway",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "messagegiveaway",
+      "emoji": "4",
+      "varName2": "🎉",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "time": "${slashParams(\"czas\")}",
+      "measurement": "3",
+      "name": "Wait"
+    },
+    {
+      "message": "1",
+      "varName": "messagegiveaway",
+      "info": "1",
+      "find": "🎉",
+      "storage": "1",
+      "varName2": "reaction",
+      "name": "Find Reaction"
+    },
+    {
+      "reaction": "1",
+      "varName": "reaction",
+      "info": "6",
+      "storage": "1",
+      "varName2": "random",
+      "name": "Store Reaction Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Koniec Giveaway'a",
+          "url": "",
+          "color": "BLACK",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Nagroda: ${slashParams(\"na\")}\n\nWygrał: ${tempVars(\"random\")}\n\nOrganizator: ${tempVars(\"obj\")}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "Cyrk Informejtika",
+          "footerIconUrl": "${tempVars(\"av\")}"
+        }
+      ],
+      "reply": false,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "messagegiveaway",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "parameters": [
+    {
+      "name": "na",
+      "description": "na co giveaway",
+      "type": "STRING",
+      "required": true,
+      "choices": null
+    },
+    {
+      "name": "czas",
+      "description": "jaki ma być czas",
+      "type": "INTEGER",
+      "required": true,
+      "choices": null
+    }
+  ],
+  "description": "Stwórz giveaway!"
+}
